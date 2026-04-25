@@ -4,8 +4,9 @@ from mailing import Mailing
 
 address_from = Address("765678", "Москва", "Казанская", "10", "5")
 address_to = Address("190000", "Санкт-Петербург", "Невский", "25", "12")
-mailing = Mailing(to_address=address_to, from_address=address_from, cost=350,)
-mailing = Mailing(track="RU5678765467")
+mailing = Mailing(to_address=address_to, from_address=address_from,
+                  track="RU5678765467", cost=350
+                  )
 print(f"Отправление {mailing.track} из "
       f"{mailing.from_address.index}, {mailing.from_address.city}, "
       f"{mailing.from_address.street},"
