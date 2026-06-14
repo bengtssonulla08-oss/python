@@ -6,8 +6,8 @@ from selenium.webdriver.support import expected_conditions as EC
 class CalcPage:
     def __init__(self, browser):
         self.driver = browser
-        self.url = "https://bonigarcia.dev/selenium-webdriver-java/" \
-                   "slow-calculator.html"
+        self.url = "https://bonigarcia.dev/" \
+                   "selenium-webdriver-java/slow-calculator.html"
         self._delay_input = (By.CSS_SELECTOR, "#delay")
         self._result_field = (By.CSS_SELECTOR, ".screen")
 
