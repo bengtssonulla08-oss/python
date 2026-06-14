@@ -24,7 +24,9 @@ class CalcPage:
     @allure.step("Устанавливаем задержку.")
     def set_delay(self, time: str) -> None:
         """Устанавливаем задержку."""
-        delay = self.driver.find_element(*self._delay_input)
+        delay = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located(self._delay_input)
+        )
         delay.clear()
         delay.send_keys(time)
 
@@ -32,7 +34,10 @@ class CalcPage:
     def click_button(self, text: str) -> None:
         """Кликаем по кнопке."""
         button_locator = (By.XPATH, f"//span[text()='{text}']")
-        self.driver.find_element(*button_locator).click()
+        button = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(button_locator)
+        )
+        button.click()
 
     @allure.step("Ожидаем результат.")
     def get_result(self, timeout: int) -> str:
